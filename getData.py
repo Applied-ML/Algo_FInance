@@ -19,3 +19,6 @@ class getData:
             temp.name = ticker
             df = pd.concat([df,temp],axis=1)
         return df 
+    
+
+    ##NOTES##
