@@ -22,7 +22,7 @@ class resMomentum:
         ranking_period_end = monthly_returns.index[-self.holding_period - 1]
         ranking_period_start = ranking_period_end - pd.DateOffset(months=self.look_back_period)
         residual_momentum = excess_returns.loc[ranking_period_start:ranking_period_end].mean()
-        ranked_stocks = residual_momentum.sort_values(ascending=False).index[:5]
+        ranked_stocks = residual_momentum.sort_values(ascending=False).index[:int(0.02*len(residual_momentum))]
         holding_returns = monthly_returns.loc[ranking_period_end:, ranked_stocks].mean(axis=1)
         cumulative_returns = (1 + holding_returns).cumprod() - 1
 

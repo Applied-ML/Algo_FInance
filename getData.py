@@ -6,16 +6,15 @@ class getData:
 
     
     def __init__(self):
-        self.start_date = '2020-01-01'
         self.end_date = datetime.today().strftime('%Y-%m-%d')
         
        
         
-    def dataLoad(self,tickerList,interval):
+    def dataLoad(self,tickerList,interval,start_date):
         df = pd.DataFrame()
         for ticker in tickerList:
             print(ticker)
-            temp = yf.download(ticker,start = self.start_date,end = self.end_date,interval=interval)['Adj Close']
+            temp = yf.download(ticker,start = start_date,end = self.end_date,interval=interval)
             temp.name = ticker
             df = pd.concat([df,temp],axis=1)
         return df 
