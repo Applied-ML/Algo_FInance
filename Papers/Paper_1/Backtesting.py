@@ -5,7 +5,7 @@ class Strategies:
         total_profit = [0]*len(y_test)
         transaction_number = 0
         for i in range(len(y_test)):
-            if i<= len(y_test-gamma):
+            if i< len(y_test)-gamma:
                 if y_test[i] == 1:
                     transaction_number+=1
                     
