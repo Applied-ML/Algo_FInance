@@ -10,10 +10,12 @@ class Strategies:
                     transaction_number+=1
                     
                     buy_price  = df['Close'].iloc[train_length+i]
+                    if (train_length+i+gamma) == 750:
+                        print('current index:',750)
                     sell_price = df['Close'].iloc[train_length+i+gamma]
                     current_profit = buy_price - sell_price
                     total_profit[i] = current_profit
-                    information = "Transaction number: "+str(transaction_number) +" Buy Date: "+str(df.index[i]) + " Sell Date: "+str(df.index[i+gamma])+" Profit: "+str(current_profit)
+                    information = "Transaction number: "+str(transaction_number) +" Buy Date: "+str(df.index[i]) + " Sell Data: "+str(df.index[i+gamma])+" Profit: "+str(current_profit)
 
                     transaction_dict.update({transaction_number:information})
         result = sum(total_profit) 
